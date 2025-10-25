@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://bpcx4c6otjl1h"
+path="res://.godot/imported/Take it Back.mp3-1bc266656ef364f93750f4cddaf0fecc.mp3str"
+
+[deps]
+
+source_file="res://music/Take it Back.mp3"
+dest_files=["res://.godot/imported/Take it Back.mp3-1bc266656ef364f93750f4cddaf0fecc.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

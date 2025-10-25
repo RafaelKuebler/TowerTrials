@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://dv3ysxqgmdnnd"
+path="res://.godot/imported/Another Time Perhaps.mp3-05890a6e7ea5ee6c0b1749fe7cec101e.mp3str"
+
+[deps]
+
+source_file="res://music/Another Time Perhaps.mp3"
+dest_files=["res://.godot/imported/Another Time Perhaps.mp3-05890a6e7ea5ee6c0b1749fe7cec101e.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://c8b604tkag7od"]
+
+[ext_resource type="Script" uid="uid://cypfv834xpb87" path="res://blocks/block.gd" id="1_0e2ub"]
+[ext_resource type="Texture2D" uid="uid://0usys4cgatsf" path="res://graphics/ZD Tetris 8bit Colored.png" id="2_af6wh"]
+
+[node name="Spaceship2" type="RigidBody2D"]
+gravity_scale = 0.1
+script = ExtResource("1_0e2ub")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
+texture = ExtResource("2_af6wh")
+region_enabled = true
+region_rect = Rect2(27, 378, 16, 24)
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+polygon = PackedVector2Array(8, -12, 0, -12, 0, 4, -8, 4, -8, 12, 8, 12)

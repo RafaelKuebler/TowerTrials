@@ -1,0 +1,60 @@
+[gd_scene load_steps=6 format=3 uid="uid://b60vxg8iu7b4q"]
+
+[ext_resource type="Script" uid="uid://d05lndu7t1hem" path="res://gameover.gd" id="1_tpdqf"]
+[ext_resource type="Texture2D" uid="uid://cvgu5f2qdm5wn" path="res://graphics/Hamster22x22.png" id="2_eeur3"]
+[ext_resource type="Texture2D" uid="uid://mpd5ttxwcmad" path="res://graphics/HamsterGirl24x24.png" id="3_kctv7"]
+[ext_resource type="FontFile" uid="uid://c174kip56lq3" path="res://ARCADECLASSIC.TTF" id="19_e3ck8"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_eeur3"]
+bg_color = Color(0, 0.449336, 0.000235841, 1)
+shadow_color = Color(1, 1, 1, 0.6)
+shadow_size = 2
+shadow_offset = Vector2(0, 1)
+
+[node name="GameOver" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_tpdqf")
+hamster_texture = Array[Texture2D]([ExtResource("2_eeur3"), ExtResource("3_kctv7")])
+
+[node name="CenterContainer" type="CenterContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer"]
+layout_mode = 2
+theme_override_constants/separation = 25
+alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="CenterContainer/VBoxContainer"]
+texture_filter = 1
+layout_mode = 2
+texture = ExtResource("2_eeur3")
+stretch_mode = 3
+
+[node name="Label" type="Label" parent="CenterContainer/VBoxContainer"]
+texture_filter = 1
+layout_mode = 2
+theme_override_fonts/font = ExtResource("19_e3ck8")
+text = "Game  over!
+
+Don't  loose  too
+many  blocks!"
+horizontal_alignment = 1
+
+[node name="Button" type="Button" parent="CenterContainer/VBoxContainer"]
+texture_filter = 1
+layout_mode = 2
+theme_override_fonts/font = ExtResource("19_e3ck8")
+theme_override_styles/normal = SubResource("StyleBoxFlat_eeur3")
+text = "Restart"

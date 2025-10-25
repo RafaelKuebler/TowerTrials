@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=3 uid="uid://bulsfwgy5s17y"]
+
+[ext_resource type="Script" uid="uid://cypfv834xpb87" path="res://blocks/block.gd" id="1_p574j"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_0tw6b"]
+load_path = "res://.godot/imported/ZD Tetris 8bit Colored.png-d02e7cf2e5c973220e81893fd9fd9178.ctex"
+
+[node name="Pyramid" type="RigidBody2D"]
+gravity_scale = 0.1
+script = ExtResource("1_p574j")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
+texture = SubResource("CompressedTexture2D_0tw6b")
+region_enabled = true
+region_rect = Rect2(83, 182, 24, 16)
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+polygon = PackedVector2Array(-12, 0, -12, 8, 12, 8, 12, 0, 4, 0, 4, -8, -4, -8, -4, 0)

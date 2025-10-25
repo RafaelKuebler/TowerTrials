@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://b0fu4o5lf8pl8"
+path="res://.godot/imported/Wild Wind, Take Me Home.mp3-753a45d4e836ca120a53db8ad4ce33fc.mp3str"
+
+[deps]
+
+source_file="res://music/Wild Wind, Take Me Home.mp3"
+dest_files=["res://.godot/imported/Wild Wind, Take Me Home.mp3-753a45d4e836ca120a53db8ad4ce33fc.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://d1aj8gvf0n8om"
+path="res://.godot/imported/Countersunk Fast.mp3-15347e1a30ccac0a4724ad1a6d9cf75f.mp3str"
+
+[deps]
+
+source_file="res://music/Countersunk Fast.mp3"
+dest_files=["res://.godot/imported/Countersunk Fast.mp3-15347e1a30ccac0a4724ad1a6d9cf75f.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

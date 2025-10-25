@@ -1,0 +1,24 @@
+[gd_scene load_steps=2 format=3 uid="uid://cib1sc1ri8kvd"]
+
+[ext_resource type="Script" uid="uid://bqoi8a4caey1u" path="res://text.gd" id="1_aohfb"]
+
+[node name="Text" type="Node2D"]
+script = ExtResource("1_aohfb")
+
+[node name="Label" type="Label" parent="."]
+texture_filter = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_right = 32.0
+offset_bottom = 23.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+theme_override_colors/font_color = Color(0.32549, 1, 0.298039, 1)
+theme_override_colors/font_shadow_color = Color(0.494118, 0.494118, 0.494118, 1)
+text = "YES!"
+horizontal_alignment = 1
+vertical_alignment = 1

@@ -1,0 +1,41 @@
+[gd_scene load_steps=6 format=3 uid="uid://dr2ft46ae2wt6"]
+
+[ext_resource type="FontFile" uid="uid://c174kip56lq3" path="res://ARCADECLASSIC.TTF" id="1_8k7fc"]
+[ext_resource type="Script" uid="uid://dx6b41koufns7" path="res://effect.gd" id="1_ce50g"]
+[ext_resource type="PackedScene" uid="uid://cib1sc1ri8kvd" path="res://text.tscn" id="2_vb57n"]
+[ext_resource type="AudioStream" uid="uid://uuec1gyei1gl" path="res://sounds/Actions/Booster.wav" id="3_lnuxy"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2cqfq"]
+size = Vector2(19, 10)
+
+[node name="Effect" type="Area2D"]
+script = ExtResource("1_ce50g")
+text_scene = ExtResource("2_vb57n")
+
+[node name="Label" type="Label" parent="."]
+texture_filter = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -11.5
+offset_right = 20.0
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.325915, 1, 0.29823, 1)
+theme_override_colors/font_shadow_color = Color(0.493545, 0.493546, 0.493546, 1)
+theme_override_fonts/font = ExtResource("1_8k7fc")
+text = "X2"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
+position = Vector2(0.5, 1)
+shape = SubResource("RectangleShape2D_2cqfq")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_lnuxy")

@@ -1,0 +1,157 @@
+[gd_scene load_steps=25 format=3 uid="uid://y2au0k6tyepb"]
+
+[ext_resource type="Script" uid="uid://blsfsrihumq5n" path="res://main.gd" id="1_ig7tw"]
+[ext_resource type="PackedScene" uid="uid://cqww5y2d836cd" path="res://blocks/square.tscn" id="2_0xm2m"]
+[ext_resource type="Script" uid="uid://dhgacw552a55h" path="res://destroy_zone.gd" id="3_h2yge"]
+[ext_resource type="PackedScene" uid="uid://c8iy3spu8j6nh" path="res://blocks/corner.tscn" id="3_kek77"]
+[ext_resource type="PackedScene" uid="uid://bulsfwgy5s17y" path="res://blocks/pyramid.tscn" id="4_4c57u"]
+[ext_resource type="PackedScene" uid="uid://cwxuykecvuqjy" path="res://blocks/snake2.tscn" id="5_efxa6"]
+[ext_resource type="PackedScene" uid="uid://0h2lcbmqe5ml" path="res://blocks/snake.tscn" id="6_dg77c"]
+[ext_resource type="PackedScene" uid="uid://c8b604tkag7od" path="res://blocks/spaceship2.tscn" id="7_ycdy4"]
+[ext_resource type="PackedScene" uid="uid://bhtbslkwmmjyg" path="res://blocks/spaceship.tscn" id="8_w48qg"]
+[ext_resource type="Texture2D" uid="uid://v3d70spk2mt8" path="res://graphics/background.png" id="9_ryguw"]
+[ext_resource type="Texture2D" uid="uid://dtegjb2hr2odw" path="res://graphics/base.png" id="10_dg77c"]
+[ext_resource type="PackedScene" uid="uid://b60vxg8iu7b4q" path="res://gameover.tscn" id="11_82xsv"]
+[ext_resource type="AudioStream" uid="uid://cf1bq4k8x76o7" path="res://sounds/Menu/Menu_Click.wav" id="11_ycdy4"]
+[ext_resource type="AudioStream" uid="uid://ck1j1t26lcyep" path="res://music/Countersunk.mp3" id="12_dg77c"]
+[ext_resource type="Script" uid="uid://bkdj0k6iwo2be" path="res://victory_zone.gd" id="12_getpj"]
+[ext_resource type="AudioStream" uid="uid://uvhkshm05dcs" path="res://sounds/Firepower/Magic_Hit.wav" id="12_ycdy4"]
+[ext_resource type="AudioStream" uid="uid://cfb4hnvwjxn85" path="res://sounds/Win_Lose/Level_Complete.wav" id="14_074og"]
+[ext_resource type="AudioStream" uid="uid://c04lpfqwuk102" path="res://sounds/Win_Lose/Player_Died.wav" id="14_cegan"]
+[ext_resource type="Script" uid="uid://cji8r7fy7m846" path="res://effect_spawner.gd" id="14_vivmo"]
+[ext_resource type="Script" uid="uid://dk0s7uxxsms4h" path="res://inconvenience_spawner.gd" id="15_2cqfq"]
+[ext_resource type="PackedScene" uid="uid://dr2ft46ae2wt6" path="res://effect.tscn" id="16_2cqfq"]
+[ext_resource type="FontFile" uid="uid://c174kip56lq3" path="res://ARCADECLASSIC.TTF" id="17_yaehf"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0xm2m"]
+size = Vector2(96, 320)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_getpj"]
+size = Vector2(171, 116.5)
+
+[node name="Main" type="Node2D"]
+script = ExtResource("1_ig7tw")
+block_scenes = Array[PackedScene]([ExtResource("2_0xm2m"), ExtResource("3_kek77"), ExtResource("4_4c57u"), ExtResource("5_efxa6"), ExtResource("6_dg77c"), ExtResource("7_ycdy4"), ExtResource("8_w48qg")])
+
+[node name="Background" type="TextureRect" parent="."]
+modulate = Color(1, 1, 1, 0.133333)
+show_behind_parent = true
+texture_filter = 1
+texture_repeat = 2
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -80.0
+offset_top = -160.0
+offset_right = 80.0
+offset_bottom = 160.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("9_ryguw")
+stretch_mode = 1
+
+[node name="Camera2D" type="Camera2D" parent="."]
+
+[node name="Blocks" type="Node2D" parent="."]
+
+[node name="Ground" type="StaticBody2D" parent="."]
+position = Vector2(0, 194)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Ground"]
+position = Vector2(0, 30)
+shape = SubResource("RectangleShape2D_0xm2m")
+
+[node name="TextureRect" type="TextureRect" parent="Ground"]
+show_behind_parent = true
+texture_filter = 1
+texture_repeat = 2
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -48.0
+offset_top = -130.0
+offset_right = 48.0
+offset_bottom = 190.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("10_dg77c")
+stretch_mode = 1
+
+[node name="DestroyZone" type="Area2D" parent="."]
+position = Vector2(0, 294)
+script = ExtResource("3_h2yge")
+gameover_scene = ExtResource("11_82xsv")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="DestroyZone"]
+polygon = PackedVector2Array(-87, -461, -229, -461, -229, 63, 235, 64, 234, -459, 86, -459, 88, -128, -87, -128)
+
+[node name="VictoryZone" type="Area2D" parent="."]
+position = Vector2(0, -176)
+script = ExtResource("12_getpj")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="VictoryZone"]
+position = Vector2(0, 69)
+shape = SubResource("RectangleShape2D_getpj")
+debug_color = Color(1.63645e-06, 0.642589, 0.315138, 0.42)
+
+[node name="SpawnPoint" type="Marker2D" parent="."]
+position = Vector2(0, -178)
+
+[node name="SoundManager" type="Node" parent="."]
+
+[node name="TouchdownPlayer" type="AudioStreamPlayer2D" parent="SoundManager"]
+stream = ExtResource("11_ycdy4")
+
+[node name="DestroyPlayer" type="AudioStreamPlayer2D" parent="SoundManager"]
+stream = ExtResource("12_ycdy4")
+
+[node name="MusicPlayer" type="AudioStreamPlayer2D" parent="SoundManager"]
+stream = ExtResource("12_dg77c")
+autoplay = true
+parameters/looping = true
+
+[node name="GameOverPlayer" type="AudioStreamPlayer2D" parent="SoundManager"]
+stream = ExtResource("14_cegan")
+
+[node name="VictoryPlayer" type="AudioStreamPlayer2D" parent="SoundManager"]
+stream = ExtResource("14_074og")
+
+[node name="EffectSpawner" type="Node2D" parent="."]
+script = ExtResource("14_vivmo")
+powerup_scene = ExtResource("16_2cqfq")
+
+[node name="InconvenienceSpawner" type="Node2D" parent="."]
+script = ExtResource("15_2cqfq")
+
+[node name="LostCounter" type="Label" parent="."]
+z_index = 1
+texture_filter = 1
+offset_left = -76.0
+offset_top = -160.0
+offset_right = -6.0
+offset_bottom = -130.0
+size_flags_horizontal = 0
+size_flags_vertical = 0
+theme_override_colors/font_color = Color(0.929812, 4.66868e-06, 1.15514e-06, 1)
+theme_override_colors/font_shadow_color = Color(0.466181, 0.466181, 0.466181, 1)
+theme_override_fonts/font = ExtResource("17_yaehf")
+theme_override_font_sizes/font_size = 28
+text = "00/10"
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
+modulate = Color(1, 1, 1, 0)
+z_index = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 2
+size_flags_vertical = 2
+color = Color(0, 0, 0, 1)

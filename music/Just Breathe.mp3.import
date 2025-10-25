@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://bs8e0ywaolugj"
+path="res://.godot/imported/Just Breathe.mp3-6925e5ad1de87d4935d9a89f553137ae.mp3str"
+
+[deps]
+
+source_file="res://music/Just Breathe.mp3"
+dest_files=["res://.godot/imported/Just Breathe.mp3-6925e5ad1de87d4935d9a89f553137ae.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

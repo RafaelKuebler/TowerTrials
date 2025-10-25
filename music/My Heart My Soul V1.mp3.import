@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://drsjyd4af157y"
+path="res://.godot/imported/My Heart My Soul V1.mp3-a6dc71593972a749e8de494b948fa4fb.mp3str"
+
+[deps]
+
+source_file="res://music/My Heart My Soul V1.mp3"
+dest_files=["res://.godot/imported/My Heart My Soul V1.mp3-a6dc71593972a749e8de494b948fa4fb.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
