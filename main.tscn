@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=3 uid="uid://y2au0k6tyepb"]
+[gd_scene load_steps=36 format=3 uid="uid://y2au0k6tyepb"]
 
 [ext_resource type="Script" uid="uid://blsfsrihumq5n" path="res://main.gd" id="1_ig7tw"]
 [ext_resource type="PackedScene" uid="uid://cqww5y2d836cd" path="res://blocks/square.tscn" id="2_0xm2m"]
@@ -16,22 +16,76 @@
 [ext_resource type="AudioStream" uid="uid://ck1j1t26lcyep" path="res://music/Countersunk.mp3" id="12_dg77c"]
 [ext_resource type="Script" uid="uid://bkdj0k6iwo2be" path="res://victory_zone.gd" id="12_getpj"]
 [ext_resource type="AudioStream" uid="uid://uvhkshm05dcs" path="res://sounds/Firepower/Magic_Hit.wav" id="12_ycdy4"]
+[ext_resource type="Texture2D" uid="uid://cunwnyh6e8oob" path="res://graphics/fire/Yellow Effect Bullet Impact Explosion 32x32.png" id="13_d13ii"]
 [ext_resource type="AudioStream" uid="uid://cfb4hnvwjxn85" path="res://sounds/Win_Lose/Level_Complete.wav" id="14_074og"]
 [ext_resource type="AudioStream" uid="uid://c04lpfqwuk102" path="res://sounds/Win_Lose/Player_Died.wav" id="14_cegan"]
 [ext_resource type="Script" uid="uid://cji8r7fy7m846" path="res://effect_spawner.gd" id="14_vivmo"]
+[ext_resource type="PackedScene" uid="uid://cxl4mbmwn65k" path="res://victory.tscn" id="15_1u8w0"]
 [ext_resource type="Script" uid="uid://dk0s7uxxsms4h" path="res://inconvenience_spawner.gd" id="15_2cqfq"]
 [ext_resource type="PackedScene" uid="uid://dr2ft46ae2wt6" path="res://effect.tscn" id="16_2cqfq"]
 [ext_resource type="FontFile" uid="uid://c174kip56lq3" path="res://ARCADECLASSIC.TTF" id="17_yaehf"]
+[ext_resource type="Script" uid="uid://d3ecyp6sitvo2" path="res://inconveniences/sniper.gd" id="25_0odxb"]
+[ext_resource type="Script" uid="uid://8cfg5we0chbl" path="res://inconveniences/faster.gd" id="26_lswn8"]
+[ext_resource type="Script" uid="uid://n5skfcn3hfw4" path="res://inconveniences/shake.gd" id="27_xuqvo"]
+[ext_resource type="PackedScene" uid="uid://cib1sc1ri8kvd" path="res://text.tscn" id="28_xuqvo"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0xm2m"]
-size = Vector2(96, 320)
+size = Vector2(48, 320)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1u8w0"]
+atlas = ExtResource("13_d13ii")
+region = Rect2(352, 224, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0odxb"]
+atlas = ExtResource("13_d13ii")
+region = Rect2(384, 224, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lswn8"]
+atlas = ExtResource("13_d13ii")
+region = Rect2(416, 224, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_a6jrf"]
+atlas = ExtResource("13_d13ii")
+region = Rect2(448, 224, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ryguw"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1u8w0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0odxb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lswn8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_a6jrf")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_getpj"]
-size = Vector2(171, 116.5)
+size = Vector2(192, 129)
 
 [node name="Main" type="Node2D"]
 script = ExtResource("1_ig7tw")
 block_scenes = Array[PackedScene]([ExtResource("2_0xm2m"), ExtResource("3_kek77"), ExtResource("4_4c57u"), ExtResource("5_efxa6"), ExtResource("6_dg77c"), ExtResource("7_ycdy4"), ExtResource("8_w48qg")])
+
+[node name="Inconveniences" type="VBoxContainer" parent="."]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = 62.0
+offset_top = -160.0
+offset_right = 80.0
+offset_bottom = -127.0
+grow_horizontal = 0
+size_flags_horizontal = 8
+theme_override_constants/separation = 0
 
 [node name="Background" type="TextureRect" parent="."]
 modulate = Color(1, 1, 1, 0.133333)
@@ -51,6 +105,30 @@ grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("9_ryguw")
 stretch_mode = 1
+
+[node name="Countdown" type="Label" parent="."]
+z_index = 1
+texture_filter = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -35.0
+offset_top = -44.0
+offset_right = 35.0
+offset_bottom = -14.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+theme_override_colors/font_color = Color(0, 1, 0, 1)
+theme_override_colors/font_shadow_color = Color(0.466181, 0.466181, 0.466181, 1)
+theme_override_fonts/font = ExtResource("17_yaehf")
+theme_override_font_sizes/font_size = 70
+text = "5"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="Camera2D" type="Camera2D" parent="."]
 
@@ -72,9 +150,9 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -48.0
+offset_left = -24.0
 offset_top = -130.0
-offset_right = 48.0
+offset_right = 24.0
 offset_bottom = 190.0
 grow_horizontal = 2
 grow_vertical = 2
@@ -84,19 +162,87 @@ stretch_mode = 1
 [node name="DestroyZone" type="Area2D" parent="."]
 position = Vector2(0, 294)
 script = ExtResource("3_h2yge")
+max_lost = 10
 gameover_scene = ExtResource("11_82xsv")
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="DestroyZone"]
-polygon = PackedVector2Array(-87, -461, -229, -461, -229, 63, 235, 64, 234, -459, 86, -459, 88, -128, -87, -128)
+polygon = PackedVector2Array(-94, -461, -229, -461, -229, 63, 235, 64, 234, -459, 98, -459, 97, -119, -94, -117)
 
-[node name="VictoryZone" type="Area2D" parent="."]
-position = Vector2(0, -176)
+[node name="Fires" type="Node2D" parent="DestroyZone"]
+position = Vector2(0, -137)
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="DestroyZone/Fires"]
+texture_filter = 1
+position = Vector2(-70, 0)
+sprite_frames = SubResource("SpriteFrames_ryguw")
+autoplay = "default"
+frame_progress = 0.911952
+
+[node name="AnimatedSprite2D2" type="AnimatedSprite2D" parent="DestroyZone/Fires"]
+texture_filter = 1
+position = Vector2(-51, 0)
+sprite_frames = SubResource("SpriteFrames_ryguw")
+autoplay = "default"
+frame = 1
+
+[node name="AnimatedSprite2D3" type="AnimatedSprite2D" parent="DestroyZone/Fires"]
+texture_filter = 1
+position = Vector2(-32, 0)
+sprite_frames = SubResource("SpriteFrames_ryguw")
+autoplay = "default"
+frame = 3
+
+[node name="AnimatedSprite2D4" type="AnimatedSprite2D" parent="DestroyZone/Fires"]
+texture_filter = 1
+position = Vector2(-12, 0)
+sprite_frames = SubResource("SpriteFrames_ryguw")
+autoplay = "default"
+frame = 2
+
+[node name="AnimatedSprite2D5" type="AnimatedSprite2D" parent="DestroyZone/Fires"]
+texture_filter = 1
+position = Vector2(8, 0)
+sprite_frames = SubResource("SpriteFrames_ryguw")
+autoplay = "default"
+frame_progress = 0.131867
+
+[node name="AnimatedSprite2D6" type="AnimatedSprite2D" parent="DestroyZone/Fires"]
+texture_filter = 1
+position = Vector2(28, 0)
+sprite_frames = SubResource("SpriteFrames_ryguw")
+autoplay = "default"
+frame_progress = 0.131867
+
+[node name="AnimatedSprite2D7" type="AnimatedSprite2D" parent="DestroyZone/Fires"]
+texture_filter = 1
+position = Vector2(48, 0)
+sprite_frames = SubResource("SpriteFrames_ryguw")
+autoplay = "default"
+frame = 2
+
+[node name="AnimatedSprite2D8" type="AnimatedSprite2D" parent="DestroyZone/Fires"]
+texture_filter = 1
+position = Vector2(68, 0)
+sprite_frames = SubResource("SpriteFrames_ryguw")
+autoplay = "default"
+frame = 3
+
+[node name="VictoryZone" type="Area2D" parent="." node_paths=PackedStringArray("counter")]
+position = Vector2(0, -122)
 script = ExtResource("12_getpj")
+victory_scene_path = ExtResource("15_1u8w0")
+counter = NodePath("../Countdown")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="VictoryZone"]
-position = Vector2(0, 69)
+position = Vector2(2, -7.5)
 shape = SubResource("RectangleShape2D_getpj")
 debug_color = Color(1.63645e-06, 0.642589, 0.315138, 0.42)
+
+[node name="ColorRect" type="ColorRect" parent="VictoryZone"]
+offset_left = -100.0
+offset_top = 57.0
+offset_right = 100.0
+offset_bottom = 58.0
 
 [node name="SpawnPoint" type="Marker2D" parent="."]
 position = Vector2(0, -178)
@@ -124,8 +270,10 @@ stream = ExtResource("14_074og")
 script = ExtResource("14_vivmo")
 powerup_scene = ExtResource("16_2cqfq")
 
-[node name="InconvenienceSpawner" type="Node2D" parent="."]
+[node name="InconvenienceSpawner" type="Node" parent="."]
 script = ExtResource("15_2cqfq")
+available_effects = Array[Script]([ExtResource("27_xuqvo"), ExtResource("26_lswn8"), ExtResource("25_0odxb")])
+text_scene = ExtResource("28_xuqvo")
 
 [node name="LostCounter" type="Label" parent="."]
 z_index = 1

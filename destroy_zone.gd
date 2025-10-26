@@ -1,6 +1,6 @@
 extends Area2D
 
-@export var max_lost: int = 1
+@export var max_lost: int = 5
 @export var fade_duration: float = 1.5
 @export var gameover_scene: PackedScene
 

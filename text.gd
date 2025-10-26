@@ -1,14 +1,16 @@
 extends Node2D
 
 @export var text: String = "YES!"
-@export var duration: float = 0.9
-@export var start_scale: float = 0.3
-@export var end_scale: float = 12.0
+@export var color: Color = "#53ff4c"
+@export var duration: float = 2
+@export var start_scale: float = 0.01
+@export var end_scale: float = 3.0
 @export var fade_start: float = 0.3
 
 @onready var label: Label = $Label
 
 func _ready():
+	label.add_theme_color_override("font_color", color)
 	label.text = text
 	label.scale = Vector2(start_scale, start_scale)
 	label.modulate.a = 1.0

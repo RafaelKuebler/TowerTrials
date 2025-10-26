@@ -1,7 +1,14 @@
-[gd_scene load_steps=4 format=3 uid="uid://8b0nw7lmhtfw"]
+[gd_scene load_steps=23 format=3 uid="uid://8b0nw7lmhtfw"]
 
-[ext_resource type="Script" uid="uid://d05lndu7t1hem" path="res://gameover.gd" id="1_ayt76"]
+[ext_resource type="Script" uid="uid://6fyd0qp44xhh" path="res://intro.gd" id="1_7a8ye"]
 [ext_resource type="FontFile" uid="uid://c174kip56lq3" path="res://ARCADECLASSIC.TTF" id="1_s2ta7"]
+[ext_resource type="PackedScene" uid="uid://y2au0k6tyepb" path="res://main.tscn" id="2_0a7ni"]
+[ext_resource type="Texture2D" uid="uid://hntkokrw3oin" path="res://graphics/kenney_input-prompts-pixel-16/Tilemap/tilemap_packed.png" id="3_7a8ye"]
+[ext_resource type="Texture2D" uid="uid://b2p0mt6jitutw" path="res://graphics/tile_0093.png" id="4_u2rf6"]
+[ext_resource type="Texture2D" uid="uid://berhso1j57g80" path="res://graphics/tile_0092.png" id="6_y6ycx"]
+[ext_resource type="Texture2D" uid="uid://dwoctikri28rg" path="res://graphics/tile_0209.png" id="7_dpxxx"]
+[ext_resource type="Texture2D" uid="uid://ccphp81wnidp" path="res://graphics/tile_0210.png" id="8_dk2oa"]
+[ext_resource type="AudioStream" uid="uid://bpcx4c6otjl1h" path="res://music/Take it Back.mp3" id="9_dk2oa"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_eeur3"]
 bg_color = Color(0, 0.449336, 0.000235841, 1)
@@ -9,14 +16,107 @@ shadow_color = Color(1, 1, 1, 0.6)
 shadow_size = 2
 shadow_offset = Vector2(0, 1)
 
-[node name="Intro" type="Control"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_0a7ni"]
+atlas = ExtResource("3_7a8ye")
+region = Rect2(288, 48, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_y72e6"]
+atlas = ExtResource("3_7a8ye")
+region = Rect2(288, 176, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_u2rf6"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0a7ni")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_y72e6")
+}],
+"loop": true,
+"name": &"default",
+"speed": 1.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_y6ycx"]
+atlas = ExtResource("3_7a8ye")
+region = Rect2(320, 48, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dpxxx"]
+atlas = ExtResource("3_7a8ye")
+region = Rect2(320, 176, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_dk2oa"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_y6ycx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dpxxx")
+}],
+"loop": true,
+"name": &"default",
+"speed": 1.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7ufi4"]
+atlas = ExtResource("3_7a8ye")
+region = Rect2(528, 64, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_h0kys"]
+atlas = ExtResource("3_7a8ye")
+region = Rect2(528, 192, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_d0rr7"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7ufi4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_h0kys")
+}],
+"loop": true,
+"name": &"default",
+"speed": 1.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wby50"]
+atlas = ExtResource("3_7a8ye")
+region = Rect2(496, 64, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xsd0a"]
+atlas = ExtResource("3_7a8ye")
+region = Rect2(496, 192, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_smii7"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wby50")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xsd0a")
+}],
+"loop": true,
+"name": &"default",
+"speed": 1.0
+}]
+
+[node name="Intro" type="Control" node_paths=PackedStringArray("continue_button", "start_button", "start_ui", "instruction_ui")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("1_ayt76")
+script = ExtResource("1_7a8ye")
+main_scene = ExtResource("2_0a7ni")
+continue_button = NodePath("CenterContainer/VBoxContainer/Button")
+start_button = NodePath("Instructions/VBoxContainer/StartButton")
+start_ui = NodePath("CenterContainer")
+instruction_ui = NodePath("Instructions")
 
 [node name="CenterContainer" type="CenterContainer" parent="."]
 layout_mode = 1
@@ -47,9 +147,9 @@ horizontal_alignment = 1
 texture_filter = 1
 layout_mode = 2
 theme_override_fonts/font = ExtResource("1_s2ta7")
-text = "Try  to  build  up
-your  tower  to
-the  target  line.
+text = "Construct  your
+tower  above  the
+target  line.
 
 And  don't  lose  too
 many  blocks!
@@ -61,4 +161,106 @@ texture_filter = 1
 layout_mode = 2
 theme_override_fonts/font = ExtResource("1_s2ta7")
 theme_override_styles/normal = SubResource("StyleBoxFlat_eeur3")
-text = "Let's go!"
+text = "Continue"
+
+[node name="Instructions" type="CenterContainer" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Instructions"]
+layout_mode = 2
+theme_override_constants/separation = 20
+alignment = 1
+
+[node name="Horizontal" type="Label" parent="Instructions/VBoxContainer"]
+texture_filter = 1
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_s2ta7")
+text = "Move  block
+horizontally
+"
+horizontal_alignment = 1
+
+[node name="left" type="Sprite2D" parent="Instructions/VBoxContainer"]
+texture_filter = 1
+position = Vector2(8, 56)
+texture = ExtResource("4_u2rf6")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Instructions/VBoxContainer"]
+texture_filter = 1
+position = Vector2(30, 56)
+scale = Vector2(2, 2)
+sprite_frames = SubResource("SpriteFrames_u2rf6")
+autoplay = "default"
+frame = 1
+
+[node name="AnimatedSprite2D2" type="AnimatedSprite2D" parent="Instructions/VBoxContainer"]
+texture_filter = 1
+position = Vector2(72, 56)
+scale = Vector2(2, 2)
+sprite_frames = SubResource("SpriteFrames_dk2oa")
+autoplay = "default"
+
+[node name="right" type="Sprite2D" parent="Instructions/VBoxContainer"]
+texture_filter = 1
+position = Vector2(92, 56)
+texture = ExtResource("6_y6ycx")
+
+[node name="Placeholder" type="Control" parent="Instructions/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 4
+
+[node name="Rotate" type="Label" parent="Instructions/VBoxContainer"]
+texture_filter = 1
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_s2ta7")
+text = "Rotate  block
+"
+horizontal_alignment = 1
+
+[node name="Placeholder2" type="Control" parent="Instructions/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 4
+
+[node name="AnimatedSprite2D3" type="AnimatedSprite2D" parent="Instructions/VBoxContainer"]
+texture_filter = 1
+position = Vector2(30, 132)
+scale = Vector2(2, 2)
+sprite_frames = SubResource("SpriteFrames_d0rr7")
+autoplay = "default"
+frame = 1
+
+[node name="AnimatedSprite2D4" type="AnimatedSprite2D" parent="Instructions/VBoxContainer"]
+texture_filter = 1
+position = Vector2(72, 132)
+scale = Vector2(2, 2)
+sprite_frames = SubResource("SpriteFrames_smii7")
+autoplay = "default"
+
+[node name="StartButton" type="Button" parent="Instructions/VBoxContainer"]
+texture_filter = 1
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_s2ta7")
+theme_override_styles/normal = SubResource("StyleBoxFlat_eeur3")
+text = "Start"
+
+[node name="Clock" type="Sprite2D" parent="Instructions/VBoxContainer"]
+texture_filter = 1
+position = Vector2(92, 132)
+texture = ExtResource("7_dpxxx")
+
+[node name="CounterClock" type="Sprite2D" parent="Instructions/VBoxContainer"]
+texture_filter = 1
+position = Vector2(8, 132)
+texture = ExtResource("8_dk2oa")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("9_dk2oa")
+autoplay = true
