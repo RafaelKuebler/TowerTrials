@@ -8,6 +8,7 @@ var icons = {
 	"Faster": preload("res://graphics/tile_0012.png"),
 	"Shake": preload("res://graphics/tile_0041.png"),
 	"Destruction": preload("res://graphics/tile_0055.png"),
+	"Invert": preload("res://graphics/tile_0123.png")
 }
 var font = preload("res://ARCADECLASSIC.TTF")
 

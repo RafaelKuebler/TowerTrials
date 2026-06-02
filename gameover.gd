@@ -13,3 +13,8 @@ func _ready():
 
 func _on_restart_button_pressed():
 	get_tree().change_scene_to_file(game_scene_path)
+
+func _input(event):
+	if not event.is_action_pressed("ui_accept"):
+		return
+	_on_restart_button_pressed()

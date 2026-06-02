@@ -18,3 +18,11 @@ func _on_start_button_pressed():
 func _on_continue_button_pressed():
 	start_ui.visible = false
 	instruction_ui.visible = true
+
+func _input(event):
+	if not event.is_action_pressed("ui_accept"):
+		return
+	if start_ui.visible:
+		_on_continue_button_pressed()
+	else:
+		_on_start_button_pressed()

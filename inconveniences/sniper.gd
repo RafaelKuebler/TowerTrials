@@ -6,15 +6,20 @@ var target_block: RigidBody2D
 var timer: float = 0.0
 var cross: Sprite2D
 var icon_image = preload("res://graphics/cross.png")
+var blink_speed = 4.0 # how many times per second to blink
 
 func _on_start():
 	var blocks = get_blocks()
 	target_block = blocks.pick_random()
-	target_block.modulate = Color(1, 0, 0, .5)
+	if not target_block:
+		active = false
+		return
+	target_block.modulate = Color(1, 0, 0, .8)
 	timer = 0.0
 	
 	cross = Sprite2D.new()
 	cross.texture = icon_image
+	cross.z_index = 15
 	cross.modulate = Color(1, .8, .8, 1)
 	cross.centered = true
 	cross.global_position = target_block.global_position
@@ -24,6 +29,10 @@ func _on_start():
 
 func _on_update(delta):
 	timer += delta
+	
+	var alpha = 0.5 + 0.5 * sin(timer * TAU * blink_speed)
+	cross.modulate.a = alpha
+
 	if not target_block or not target_block.is_inside_tree():
 		active = false
 		return
@@ -54,4 +63,5 @@ func get_text() -> String:
 
 func clean():
 	super.clean()
-	cross.queue_free()
+	if cross:
+		cross.queue_free()

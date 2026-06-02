@@ -1,4 +1,4 @@
-[gd_scene load_steps=36 format=3 uid="uid://y2au0k6tyepb"]
+[gd_scene load_steps=37 format=3 uid="uid://y2au0k6tyepb"]
 
 [ext_resource type="Script" uid="uid://blsfsrihumq5n" path="res://main.gd" id="1_ig7tw"]
 [ext_resource type="PackedScene" uid="uid://cqww5y2d836cd" path="res://blocks/square.tscn" id="2_0xm2m"]
@@ -27,6 +27,7 @@
 [ext_resource type="Script" uid="uid://d3ecyp6sitvo2" path="res://inconveniences/sniper.gd" id="25_0odxb"]
 [ext_resource type="Script" uid="uid://8cfg5we0chbl" path="res://inconveniences/faster.gd" id="26_lswn8"]
 [ext_resource type="Script" uid="uid://n5skfcn3hfw4" path="res://inconveniences/shake.gd" id="27_xuqvo"]
+[ext_resource type="Script" uid="uid://cdksf7iaedq5i" path="res://inconveniences/invert.gd" id="28_qsp4k"]
 [ext_resource type="PackedScene" uid="uid://cib1sc1ri8kvd" path="res://text.tscn" id="28_xuqvo"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0xm2m"]
@@ -107,7 +108,7 @@ texture = ExtResource("9_ryguw")
 stretch_mode = 1
 
 [node name="Countdown" type="Label" parent="."]
-z_index = 1
+z_index = 100
 texture_filter = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -172,13 +173,15 @@ polygon = PackedVector2Array(-94, -461, -229, -461, -229, 63, 235, 64, 234, -459
 position = Vector2(0, -137)
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="DestroyZone/Fires"]
+z_index = 15
 texture_filter = 1
 position = Vector2(-70, 0)
 sprite_frames = SubResource("SpriteFrames_ryguw")
 autoplay = "default"
-frame_progress = 0.911952
+frame_progress = 0.374875
 
 [node name="AnimatedSprite2D2" type="AnimatedSprite2D" parent="DestroyZone/Fires"]
+z_index = 15
 texture_filter = 1
 position = Vector2(-51, 0)
 sprite_frames = SubResource("SpriteFrames_ryguw")
@@ -186,6 +189,7 @@ autoplay = "default"
 frame = 1
 
 [node name="AnimatedSprite2D3" type="AnimatedSprite2D" parent="DestroyZone/Fires"]
+z_index = 15
 texture_filter = 1
 position = Vector2(-32, 0)
 sprite_frames = SubResource("SpriteFrames_ryguw")
@@ -193,6 +197,7 @@ autoplay = "default"
 frame = 3
 
 [node name="AnimatedSprite2D4" type="AnimatedSprite2D" parent="DestroyZone/Fires"]
+z_index = 15
 texture_filter = 1
 position = Vector2(-12, 0)
 sprite_frames = SubResource("SpriteFrames_ryguw")
@@ -200,6 +205,7 @@ autoplay = "default"
 frame = 2
 
 [node name="AnimatedSprite2D5" type="AnimatedSprite2D" parent="DestroyZone/Fires"]
+z_index = 15
 texture_filter = 1
 position = Vector2(8, 0)
 sprite_frames = SubResource("SpriteFrames_ryguw")
@@ -207,6 +213,7 @@ autoplay = "default"
 frame_progress = 0.131867
 
 [node name="AnimatedSprite2D6" type="AnimatedSprite2D" parent="DestroyZone/Fires"]
+z_index = 15
 texture_filter = 1
 position = Vector2(28, 0)
 sprite_frames = SubResource("SpriteFrames_ryguw")
@@ -214,6 +221,7 @@ autoplay = "default"
 frame_progress = 0.131867
 
 [node name="AnimatedSprite2D7" type="AnimatedSprite2D" parent="DestroyZone/Fires"]
+z_index = 15
 texture_filter = 1
 position = Vector2(48, 0)
 sprite_frames = SubResource("SpriteFrames_ryguw")
@@ -221,6 +229,7 @@ autoplay = "default"
 frame = 2
 
 [node name="AnimatedSprite2D8" type="AnimatedSprite2D" parent="DestroyZone/Fires"]
+z_index = 15
 texture_filter = 1
 position = Vector2(68, 0)
 sprite_frames = SubResource("SpriteFrames_ryguw")
@@ -272,7 +281,7 @@ powerup_scene = ExtResource("16_2cqfq")
 
 [node name="InconvenienceSpawner" type="Node" parent="."]
 script = ExtResource("15_2cqfq")
-available_effects = Array[Script]([ExtResource("27_xuqvo"), ExtResource("26_lswn8"), ExtResource("25_0odxb")])
+available_effects = Array[Script]([ExtResource("27_xuqvo"), ExtResource("26_lswn8"), ExtResource("25_0odxb"), ExtResource("28_qsp4k")])
 text_scene = ExtResource("28_xuqvo")
 
 [node name="LostCounter" type="Label" parent="."]

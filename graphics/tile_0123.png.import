@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b7te12k085qbn"
-path="res://.godot/imported/tile_0123.png-0bf767d7ae3319afe312c8141a1fc4a4.ctex"
+uid="uid://dfrpneuc5b6is"
+path="res://.godot/imported/tile_0123.png-9bf564e00a9bfcd462306ea8191048f4.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://graphics/kenney_cursor-pixel-pack/Tiles/tile_0123.png"
-dest_files=["res://.godot/imported/tile_0123.png-0bf767d7ae3319afe312c8141a1fc4a4.ctex"]
+source_file="res://graphics/tile_0123.png"
+dest_files=["res://.godot/imported/tile_0123.png-9bf564e00a9bfcd462306ea8191048f4.ctex"]
 
 [params]
 

@@ -14,17 +14,21 @@ var lost: int = 0
 
 func _ready():
 	connect("body_entered", Callable(self, "_on_body_entered"))
-	counter.text = "0/" + str(max_lost)
+	counter.text = "0 of " + str(max_lost)
 
 func _on_body_entered(body):
+	if lost >= max_lost:
+		return
+
 	if body is RigidBody2D:
 		body.queue_free()
 		destroy_player.play()
 
 		lost += 1
-		counter.text = str(lost) + "/" + str(max_lost)
+		counter.text = str(lost) + " of " + str(max_lost)
 
-		if lost == max_lost:
+		if lost >= max_lost:
+			counter.text = "oh no"
 			music_player.stop()
 			gameover_player.play()
 			var tween = create_tween()

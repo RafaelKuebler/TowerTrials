@@ -1,8 +1,9 @@
-[gd_scene load_steps=6 format=3 uid="uid://b60vxg8iu7b4q"]
+[gd_scene load_steps=10 format=3 uid="uid://b60vxg8iu7b4q"]
 
 [ext_resource type="Script" uid="uid://d05lndu7t1hem" path="res://gameover.gd" id="1_tpdqf"]
 [ext_resource type="Texture2D" uid="uid://cvgu5f2qdm5wn" path="res://graphics/Hamster22x22.png" id="2_eeur3"]
 [ext_resource type="Texture2D" uid="uid://mpd5ttxwcmad" path="res://graphics/HamsterGirl24x24.png" id="3_kctv7"]
+[ext_resource type="Texture2D" uid="uid://hntkokrw3oin" path="res://graphics/kenney_input-prompts-pixel-16/Tilemap/tilemap_packed.png" id="5_2nw6q"]
 [ext_resource type="FontFile" uid="uid://c174kip56lq3" path="res://ARCADECLASSIC.TTF" id="19_e3ck8"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_eeur3"]
@@ -10,6 +11,28 @@ bg_color = Color(0, 0.449336, 0.000235841, 1)
 shadow_color = Color(1, 1, 1, 0.6)
 shadow_size = 2
 shadow_offset = Vector2(0, 1)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dk2oa"]
+atlas = ExtResource("5_2nw6q")
+region = Rect2(512, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_d0rr7"]
+atlas = ExtResource("5_2nw6q")
+region = Rect2(512, 160, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_w3x71"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dk2oa")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_d0rr7")
+}],
+"loop": true,
+"name": &"default",
+"speed": 1.0
+}]
 
 [node name="GameOver" type="Control"]
 layout_mode = 3
@@ -46,10 +69,10 @@ stretch_mode = 3
 texture_filter = 1
 layout_mode = 2
 theme_override_fonts/font = ExtResource("19_e3ck8")
-text = "Game  over!
+text = "Game  over
 
-Don't  loose  too
-many  blocks!"
+Do not  loose  too
+many  blocks"
 horizontal_alignment = 1
 
 [node name="Button" type="Button" parent="CenterContainer/VBoxContainer"]
@@ -58,3 +81,10 @@ layout_mode = 2
 theme_override_fonts/font = ExtResource("19_e3ck8")
 theme_override_styles/normal = SubResource("StyleBoxFlat_eeur3")
 text = "Restart"
+
+[node name="Enter" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+position = Vector2(123, 234)
+scale = Vector2(0.5, 0.5)
+sprite_frames = SubResource("SpriteFrames_w3x71")
+autoplay = "default"

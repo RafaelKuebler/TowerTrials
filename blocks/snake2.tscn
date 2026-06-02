@@ -1,9 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://cwxuykecvuqjy"]
 
 [ext_resource type="Script" uid="uid://cypfv834xpb87" path="res://blocks/block.gd" id="1_tuu21"]
-
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_y42mg"]
-load_path = "res://.godot/imported/ZD Tetris 8bit Colored.png-d02e7cf2e5c973220e81893fd9fd9178.ctex"
+[ext_resource type="Texture2D" uid="uid://0usys4cgatsf" path="res://graphics/ZD Tetris 8bit Colored.png" id="2_hv0n7"]
 
 [node name="Snake2" type="RigidBody2D"]
 gravity_scale = 0.1
@@ -11,9 +9,10 @@ script = ExtResource("1_tuu21")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture_filter = 1
-texture = SubResource("CompressedTexture2D_y42mg")
+texture = ExtResource("2_hv0n7")
 region_enabled = true
 region_rect = Rect2(485, 358, 24, 16)
+region_filter_clip_enabled = true
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
 polygon = PackedVector2Array(-4, -8, 12, -8, 12, 0, 4, 0, 4, 8, -12, 8, -12, 0, -4, 0)

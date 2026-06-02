@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://cxl4mbmwn65k"]
+[gd_scene load_steps=12 format=3 uid="uid://cxl4mbmwn65k"]
 
 [ext_resource type="Script" uid="uid://d05lndu7t1hem" path="res://gameover.gd" id="1_v3ap6"]
 [ext_resource type="Texture2D" uid="uid://cvgu5f2qdm5wn" path="res://graphics/Hamster22x22.png" id="2_e8xaq"]
@@ -6,12 +6,35 @@
 [ext_resource type="Texture2D" uid="uid://dfg6mu7p5civc" path="res://graphics/medal.png" id="4_15ee3"]
 [ext_resource type="FontFile" uid="uid://c174kip56lq3" path="res://ARCADECLASSIC.TTF" id="4_u1yty"]
 [ext_resource type="AudioStream" uid="uid://c5iuntfgpx5j5" path="res://music/My Walk.mp3" id="5_e8xaq"]
+[ext_resource type="Texture2D" uid="uid://hntkokrw3oin" path="res://graphics/kenney_input-prompts-pixel-16/Tilemap/tilemap_packed.png" id="7_u1yty"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_eeur3"]
 bg_color = Color(0, 0.449336, 0.000235841, 1)
 shadow_color = Color(1, 1, 1, 0.6)
 shadow_size = 2
 shadow_offset = Vector2(0, 1)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dk2oa"]
+atlas = ExtResource("7_u1yty")
+region = Rect2(512, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_d0rr7"]
+atlas = ExtResource("7_u1yty")
+region = Rect2(512, 160, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_msd2c"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dk2oa")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_d0rr7")
+}],
+"loop": true,
+"name": &"default",
+"speed": 1.0
+}]
 
 [node name="Victory" type="Control"]
 layout_mode = 3
@@ -63,3 +86,10 @@ text = "Restart"
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("5_e8xaq")
 autoplay = true
+
+[node name="Enter" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+position = Vector2(131, 234)
+scale = Vector2(0.5, 0.5)
+sprite_frames = SubResource("SpriteFrames_msd2c")
+autoplay = "default"

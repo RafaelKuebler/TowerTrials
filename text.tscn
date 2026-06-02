@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://cib1sc1ri8kvd"]
+[gd_scene load_steps=3 format=3 uid="uid://cib1sc1ri8kvd"]
 
 [ext_resource type="Script" uid="uid://bqoi8a4caey1u" path="res://text.gd" id="1_aohfb"]
+[ext_resource type="FontFile" uid="uid://c174kip56lq3" path="res://ARCADECLASSIC.TTF" id="2_g853r"]
 
 [node name="Text" type="Node2D"]
 script = ExtResource("1_aohfb")
@@ -12,13 +13,16 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_right = 32.0
-offset_bottom = 23.0
+offset_left = -19.0
+offset_top = -11.5
+offset_right = 19.0
+offset_bottom = 11.5
 grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 4
 theme_override_colors/font_color = Color(0.32549, 1, 0.298039, 1)
 theme_override_colors/font_shadow_color = Color(0.494118, 0.494118, 0.494118, 1)
+theme_override_fonts/font = ExtResource("2_g853r")
 text = "YES!"
 horizontal_alignment = 1
 vertical_alignment = 1

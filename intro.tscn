@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=3 uid="uid://8b0nw7lmhtfw"]
+[gd_scene load_steps=26 format=3 uid="uid://8b0nw7lmhtfw"]
 
 [ext_resource type="Script" uid="uid://6fyd0qp44xhh" path="res://intro.gd" id="1_7a8ye"]
 [ext_resource type="FontFile" uid="uid://c174kip56lq3" path="res://ARCADECLASSIC.TTF" id="1_s2ta7"]
@@ -15,6 +15,28 @@ bg_color = Color(0, 0.449336, 0.000235841, 1)
 shadow_color = Color(1, 1, 1, 0.6)
 shadow_size = 2
 shadow_offset = Vector2(0, 1)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dk2oa"]
+atlas = ExtResource("3_7a8ye")
+region = Rect2(512, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_d0rr7"]
+atlas = ExtResource("3_7a8ye")
+region = Rect2(512, 160, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_wby50"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dk2oa")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_d0rr7")
+}],
+"loop": true,
+"name": &"default",
+"speed": 1.0
+}]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_0a7ni"]
 atlas = ExtResource("3_7a8ye")
@@ -140,7 +162,7 @@ theme_override_colors/font_color = Color(0.32549, 1, 0.298039, 1)
 theme_override_fonts/font = ExtResource("1_s2ta7")
 theme_override_font_sizes/font_size = 20
 text = "Welcome  to
-Tower  Trials!"
+Tower  Trials"
 horizontal_alignment = 1
 
 [node name="Label2" type="Label" parent="CenterContainer/VBoxContainer"]
@@ -149,10 +171,10 @@ layout_mode = 2
 theme_override_fonts/font = ExtResource("1_s2ta7")
 text = "Construct  your
 tower  above  the
-target  line.
+target  line
 
-And  don't  lose  too
-many  blocks!
+And  do not  lose  too
+many  blocks
 "
 horizontal_alignment = 1
 
@@ -161,7 +183,14 @@ texture_filter = 1
 layout_mode = 2
 theme_override_fonts/font = ExtResource("1_s2ta7")
 theme_override_styles/normal = SubResource("StyleBoxFlat_eeur3")
-text = "Continue"
+text = "Continue     "
+
+[node name="Enter" type="AnimatedSprite2D" parent="CenterContainer"]
+texture_filter = 1
+position = Vector2(122, 266)
+scale = Vector2(0.5, 0.5)
+sprite_frames = SubResource("SpriteFrames_wby50")
+autoplay = "default"
 
 [node name="Instructions" type="CenterContainer" parent="."]
 visible = false
@@ -249,7 +278,14 @@ texture_filter = 1
 layout_mode = 2
 theme_override_fonts/font = ExtResource("1_s2ta7")
 theme_override_styles/normal = SubResource("StyleBoxFlat_eeur3")
-text = "Start"
+text = "Start     "
+
+[node name="Enter" type="AnimatedSprite2D" parent="Instructions/VBoxContainer"]
+texture_filter = 1
+position = Vector2(83, 177)
+scale = Vector2(0.5, 0.5)
+sprite_frames = SubResource("SpriteFrames_wby50")
+autoplay = "default"
 
 [node name="Clock" type="Sprite2D" parent="Instructions/VBoxContainer"]
 texture_filter = 1
