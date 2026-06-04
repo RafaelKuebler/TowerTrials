@@ -1,5 +1,7 @@
 # Tower Trials
 
+![Gameplay Screenshot](./gameplay.png)
+
 ## Description
 
 Tower Trials is a tiny game built for the Netlight GameJam 2025, with the theme "Construction/Destruction".
