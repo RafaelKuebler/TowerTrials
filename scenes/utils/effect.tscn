@@ -1,8 +1,8 @@
 [gd_scene load_steps=6 format=3 uid="uid://dr2ft46ae2wt6"]
 
 [ext_resource type="FontFile" uid="uid://c174kip56lq3" path="res://ARCADECLASSIC.TTF" id="1_8k7fc"]
-[ext_resource type="Script" uid="uid://dx6b41koufns7" path="res://effect.gd" id="1_ce50g"]
-[ext_resource type="PackedScene" uid="uid://cib1sc1ri8kvd" path="res://text.tscn" id="2_vb57n"]
+[ext_resource type="Script" uid="uid://dx6b41koufns7" path="res://scenes/utils/effect.gd" id="1_ce50g"]
+[ext_resource type="PackedScene" uid="uid://cib1sc1ri8kvd" path="res://scenes/utils/text.tscn" id="2_vb57n"]
 [ext_resource type="AudioStream" uid="uid://uuec1gyei1gl" path="res://sounds/Actions/Booster.wav" id="3_lnuxy"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2cqfq"]

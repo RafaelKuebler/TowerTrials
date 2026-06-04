@@ -1,8 +1,8 @@
 [gd_scene load_steps=26 format=3 uid="uid://8b0nw7lmhtfw"]
 
-[ext_resource type="Script" uid="uid://6fyd0qp44xhh" path="res://intro.gd" id="1_7a8ye"]
+[ext_resource type="Script" uid="uid://6fyd0qp44xhh" path="res://scenes/intro/intro.gd" id="1_7a8ye"]
 [ext_resource type="FontFile" uid="uid://c174kip56lq3" path="res://ARCADECLASSIC.TTF" id="1_s2ta7"]
-[ext_resource type="PackedScene" uid="uid://y2au0k6tyepb" path="res://main.tscn" id="2_0a7ni"]
+[ext_resource type="PackedScene" uid="uid://y2au0k6tyepb" path="res://scenes/main.tscn" id="2_0a7ni"]
 [ext_resource type="Texture2D" uid="uid://hntkokrw3oin" path="res://graphics/kenney_input-prompts-pixel-16/Tilemap/tilemap_packed.png" id="3_7a8ye"]
 [ext_resource type="Texture2D" uid="uid://b2p0mt6jitutw" path="res://graphics/tile_0093.png" id="4_u2rf6"]
 [ext_resource type="Texture2D" uid="uid://berhso1j57g80" path="res://graphics/tile_0092.png" id="6_y6ycx"]

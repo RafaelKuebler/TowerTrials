@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://cib1sc1ri8kvd"]
 
-[ext_resource type="Script" uid="uid://bqoi8a4caey1u" path="res://text.gd" id="1_aohfb"]
+[ext_resource type="Script" uid="uid://bqoi8a4caey1u" path="res://scenes/utils/text.gd" id="1_aohfb"]
 [ext_resource type="FontFile" uid="uid://c174kip56lq3" path="res://ARCADECLASSIC.TTF" id="2_g853r"]
 
 [node name="Text" type="Node2D"]

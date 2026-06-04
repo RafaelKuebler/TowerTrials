@@ -1,6 +1,6 @@
 extends Control
 
-@export var game_scene_path: String = "res://main.tscn"
+@export_file("*.tscn") var game_scene_path: String
 @export var hamster_texture: Array[Texture2D]
 
 @onready var restart_button: Button = $CenterContainer/VBoxContainer/Button

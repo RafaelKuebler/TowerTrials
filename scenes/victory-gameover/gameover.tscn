@@ -1,6 +1,6 @@
 [gd_scene load_steps=10 format=3 uid="uid://b60vxg8iu7b4q"]
 
-[ext_resource type="Script" uid="uid://d05lndu7t1hem" path="res://gameover.gd" id="1_tpdqf"]
+[ext_resource type="Script" uid="uid://d05lndu7t1hem" path="res://scenes/victory-gameover/gameover.gd" id="1_tpdqf"]
 [ext_resource type="Texture2D" uid="uid://cvgu5f2qdm5wn" path="res://graphics/Hamster22x22.png" id="2_eeur3"]
 [ext_resource type="Texture2D" uid="uid://mpd5ttxwcmad" path="res://graphics/HamsterGirl24x24.png" id="3_kctv7"]
 [ext_resource type="Texture2D" uid="uid://hntkokrw3oin" path="res://graphics/kenney_input-prompts-pixel-16/Tilemap/tilemap_packed.png" id="5_2nw6q"]
@@ -42,6 +42,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_tpdqf")
+game_scene_path = "res://scenes/main.tscn"
 hamster_texture = Array[Texture2D]([ExtResource("2_eeur3"), ExtResource("3_kctv7")])
 
 [node name="CenterContainer" type="CenterContainer" parent="."]
