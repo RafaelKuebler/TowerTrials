@@ -1,6 +1,6 @@
 # Tower Trials
 
-![Gameplay Screenshot](./gameplay.png)
+<img alt="Gameplay Screenshot" src="gameplay.png" width="200"> 
 
 ## Description
 
